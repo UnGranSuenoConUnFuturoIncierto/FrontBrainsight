@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainSight</title>
+
+    <link rel="icon" type="image/png" href="{% static 'home.ico' %}"/>
+
+    <style>
+        @font-face {
+            font-family: Poppins-Bold;
+            src: url("{% static 'Poppins-Bold.ttf' %}"); 
+        }
+
+        @font-face {
+            font-family: Poppins-Medium;
+            src: url("{% static 'Poppins-Medium.ttf' %}"); 
+        }
+
+        @font-face {
+            font-family: Poppins-Regular;
+            src: url("{% static 'Poppins-Regular.ttf' %}"); 
+        }
+
+        body {
+            padding: 4% 8% 5% 8%;
+            text-align: center;
+            background-color: #fefefe;
+        }
+
+        #banner img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            max-width: 800px;
+            max-height: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        #titulo {
+            margin: 5% auto 1% auto;
+        }
+
+        #titulo h2{
+            font-family: Poppins-Medium;
+            color: rgb(46, 46, 46);
+            font-size: min(2.5vw, 1.7rem);
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .box-container {
+            margin: 3% 3% 3% 3%;
+            flex-direction: column;
+            background-color: #333333;
+            border-radius: 25px;
+        }
+
+        .box {
+            margin: 0;
+            flex: 1;
+            background-color: #59738D;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .box img {
+            width: 100%;
+            height: 92%;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .box h4 {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            width: 100%;
+            padding: 0;
+            font-family: Poppins-Regular;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1px;
+            font-size: min(2vw, 1.2rem);
+        }
+
+        .lista-desplegable {
+            display: none;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            border-radius: 0 0 15px 15px;
+            position: relative;
+            z-index: 1;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .lista-desplegable p {
+            font-family: Poppins-Regular;
+            font-size: min(2.5vw, 1.5rem);
+            color: rgb(255, 248, 239);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+
+        #banner.fadeIn {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .titulo-fadeIn {
+            animation: slideInFromBottom 1s ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 1.5s;
+            opacity: 0;
+        }
+
+        .container-fadeIn {
+            animation: slideInFromBottom 1.5s ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 2.5s;
+            opacity: 0;
+        }
+
+        .lista-desplegable.slide-in-from-top {
+            animation: slideInFromTop 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="banner" class="fadeIn">
+        <img src="https://i.ibb.co/2sgV0hx/brainsight.png" alt="Logo">
+    </div>
+
+    <div id="titulo" class="titulo-fadeIn">
+        <h2>Pacientes Diagnosticados</h2>
+    </div>
+
+    <div id="recuadros" class="container-fadeIn">
+
+        <div class="container">
+
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1" onclick="mostrarLista('lista1')">
+                    <h4>Erika Paola Garcia</h4>
+                </div>
+                <ul class="lista-desplegable" id="lista1" onclick="cambioColorFondo('lista1')">
+                    <p>Ver Resultado</p>
+                </ul>
+
+            </div>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2" onclick="mostrarLista('lista2')">
+                    <h4>Juana Maria Rodriguez Gutierrez</h4>
+                </div>
+                <ul class="lista-desplegable" id="lista2" onclick="cambioColorFondo('lista2')">
+                    <p>Ver Resultado</p>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1" onclick="mostrarLista('lista3')">
+                    <h4>Erika Paola Garcia</h4>
+                </div>
+                <ul class="lista-desplegable" id="lista3" onclick="cambioColorFondo('lista3')">
+                    <p>Ver Resultado</p>
+                </ul>
+
+            </div>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2" onclick="mostrarLista('lista4')">
+                    <h4>Juana Maria Rodriguez Gutierrez</h4>
+                </div>
+                <ul class="lista-desplegable" id="lista4" onclick="cambioColorFondo('lista4')">
+                    <p>Ver Resultado</p>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var banner = document.getElementById('banner');
+            var titulo = document.getElementById('titulo');
+            var container = document.getElementById('recuadros')
+
+            banner.addEventListener('animationend', function() {
+                titulo.classList.add('titulo-fadeIn');
+                container.classList.add('container-fadeIn');
+            });
+        });
+
+        function mostrarLista(idLista) {
+            var lista = document.getElementById(idLista);
+            var boxContainer = lista.closest('.box-container');
+            var esVisible = lista.style.display === 'block';
+
+            var listas = document.querySelectorAll('.lista-desplegable');
+            listas.forEach(function (lista) {
+                lista.style.display = 'none';
+                lista.classList.remove('slide-in-from-top');
+            });
+
+            var todosLosBox = document.querySelectorAll('.box-container');
+            todosLosBox.forEach(function (box) {
+                box.style.backgroundColor = '#fefefe';
+            });
+
+            if (!esVisible) {
+                boxContainer.style.backgroundColor = '#333333';
+                lista.style.display = 'block';
+                lista.classList.add('slide-in-from-top');
+            }
+        }
+
+        function cambioColorFondo(idLista) {
+            var lista = document.getElementById(idLista);
+            var boxContainer = lista.closest('.box-container');
+            boxContainer.style.backgroundColor = '#2C76B5';
+        }
+    </script>
+
+</body>
+</html>
