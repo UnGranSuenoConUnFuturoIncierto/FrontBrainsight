@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainSight</title>
+
+    <link rel="icon" type="image/png" href="{% static 'home.ico' %}"/>
+
+    <style>
+        @font-face {
+            font-family: Poppins-Bold;
+            src: url("{% static 'Poppins-Bold.ttf' %}"); 
+        }
+
+        @font-face {
+            font-family: Poppins-Medium;
+            src: url("{% static 'Poppins-Medium.ttf' %}"); 
+        }
+
+        @font-face {
+            font-family: Poppins-Regular;
+            src: url("{% static 'Poppins-Regular.ttf' %}"); 
+        }
+
+        body {
+            padding: 5% 8% 5% 8%;
+            text-align: center;
+            background-color: #fefefe;
+        }
+
+        #banner img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            max-width: 800px;
+            max-height: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        #titulo {
+            margin: 3% auto 3% auto;
+        }
+
+        #titulo2 {
+            margin: 25px auto auto auto;
+        }
+
+        #titulo3 {
+            margin: auto auto 20px auto;
+        }
+
+        h2 {
+            font-family: Poppins-Medium;
+            color: rgb(46, 46, 46);
+            font-size: min(3vw, 1.7rem);
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .informacion {
+            display: flex;
+            flex-direction: row;
+            background-color: #2C76B5;
+            border-radius: 25px;
+        }
+
+        .imagen {
+            background-color: #59738D;
+            border-radius: 25px;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+            width: 60%;
+        }
+
+        .imagen img {
+            width: 100%;
+            height: 82%;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .imagen h4 {
+            margin-top: 0;
+            width: 100%;
+            height: 15.5%;
+            font-family: Poppins-Regular;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1px;
+            font-size: min(2.5vw, 1.2rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .datos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 40%;
+        }
+
+        .datos .subtitulo {
+            font-family: Poppins-Bold;
+            font-size: min(2.5vw, 1.2rem);
+            color: #fefefe;
+            width: 100%;
+            background-color: #2C76B5;
+        }
+
+        .datos .texto {
+            color: #1E1E1E;
+            background-color: #E1E8F0;
+            font-family: Poppins-Regular;
+            width: 100%;
+            padding: 7%;
+            height: auto;
+        }
+
+        .perspectivas {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3%;
+        }
+
+        .perspectiva {
+            margin: 3% 3% 3% 3%;
+            flex-direction: column;
+            background-color: #303030;
+            border-radius: 25px;
+        }
+
+        .perspectiva-recuadro {
+            margin: 0;
+            flex: 1;
+            background-color: #59738D;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .perspectiva-recuadro p {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            width: 100%;
+            padding: 0;
+            font-family: Poppins-Regular;
+            color: rgb(255, 255, 255);
+            font-size: min(3vw, 1.2rem);
+        }
+
+        .perspectiva img {
+            margin: 0;
+            border-radius: 0 0 15px 15px;
+            padding: 0;
+            height: 82%;
+            width: 100%;
+        }
+
+        .cerebro {
+            width: 100%;
+        }
+
+        .cerebro img {
+            width: 100%;
+            border-radius: 15px 15px 15px 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        #banner.fadeIn {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .titulo-fadeIn {
+            opacity: 0;
+            animation: slideInFromBottom 0.5s ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+        }
+
+        .container-fadeIn {
+            opacity: 0;
+            animation: slideInFromBottom 0.8s ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 1.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="banner" class="fadeIn">
+        <a href="{% url 'home' %}">
+            <img src="https://i.ibb.co/2sgV0hx/brainsight.png" alt="BrainSight">
+        </a>
+    </div>
+
+    <div id="titulo" class="titulo-fadeIn">
+        <h2>Resultados</h2>
+    </div>
+
+    <div id="contenedor" class="container-fadeIn">
+
+        <div class="container">
+
+            <div class="informacion">
+
+                <div class="imagen">
+                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1" onclick="mostrarLista('lista1')">
+                    <h4>Jefferson Alberto Hernandez Garcia</h4>
+                </div>  
+
+                <div class="datos"> 
+
+                    <div class="subtitulo">Edad</div>
+                    <div class="texto">38 años</div>
+
+                    <div class="subtitulo">Genero</div>
+                    <div class="texto">Femenino</div>
+
+                    <div class="subtitulo">Altura</div>
+                    <div class="texto">167 cm</div>
+
+                    <div class="subtitulo">Sangre</div>
+                    <div class="texto">A+</div>
+
+                    <div class="subtitulo">Ocupación</div>
+                    <div class="texto">Maestra</div>
+
+                </div>
+
+            </div>
+        
+        </div>
+
+        <div id="titulo2">
+            <h2>Perspectivas</h2>
+        </div>  
+
+        <div class="container">
+
+            <div class="perspectivas">
+
+                <div class="perspectiva">
+                    <div class="perspectiva-recuadro">
+                        <p>Perspectiva t1</p>
+                    </div>
+                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1">
+                </div>
+        
+                <div class="perspectiva">
+                    <div class="perspectiva-recuadro">
+                        <p>Perspectiva t2</p>
+                    </div>
+                    <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+                </div>
+        
+            </div>
+
+            <div class="perspectivas">
+
+                <div class="perspectiva">
+                    <div class="perspectiva-recuadro">
+                        <p>Perspectiva Flair</p>
+                    </div>
+                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1">
+                </div>
+        
+                <div class="perspectiva">
+                    <div class="perspectiva-recuadro">
+                        <p>Mascara</p>
+                    </div>
+                    <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+                </div>
+        
+            </div>
+
+        </div>
+
+        <div id="titulo3">
+            <h2>Tumor Recreado</h2>
+        </div>
+
+        <div class="container">
+
+            <div class="cerebro">
+                <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

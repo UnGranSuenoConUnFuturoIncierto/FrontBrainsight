@@ -25,7 +25,7 @@
         }
 
         body {
-            padding: 4% 8% 5% 8%;
+            padding: 5% 8% 5% 8%;
             text-align: center;
             background-color: #fefefe;
         }
@@ -46,7 +46,7 @@
         #titulo h2{
             font-family: Poppins-Medium;
             color: rgb(46, 46, 46);
-            font-size: min(2.5vw, 1.7rem);
+            font-size: min(3vw, 1.7rem);
         }
 
         .container {
@@ -62,7 +62,7 @@
         .box-container {
             margin: 3% 3% 3% 3%;
             flex-direction: column;
-            background-color: #333333;
+            background-color: #E1E8F0;
             border-radius: 25px;
         }
 
@@ -147,20 +147,20 @@
 
 
         #banner.fadeIn {
-            animation: fadeIn 1.5s ease-out;
+            animation: fadeIn 1s ease-out;
         }
 
         .titulo-fadeIn {
             animation: slideInFromBottom 1s ease-out;
             animation-fill-mode: forwards;
-            animation-delay: 1.5s;
+            animation-delay: 1s;
             opacity: 0;
         }
 
         .container-fadeIn {
-            animation: slideInFromBottom 1.5s ease-out;
+            animation: slideInFromBottom 1s ease-out;
             animation-fill-mode: forwards;
-            animation-delay: 2.5s;
+            animation-delay: 2s;
             opacity: 0;
         }
 
@@ -240,17 +240,6 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var banner = document.getElementById('banner');
-            var titulo = document.getElementById('titulo');
-            var container = document.getElementById('recuadros')
-
-            banner.addEventListener('animationend', function() {
-                titulo.classList.add('titulo-fadeIn');
-                container.classList.add('container-fadeIn');
-            });
-        });
-
         function mostrarLista(idLista) {
             var lista = document.getElementById(idLista);
             var boxContainer = lista.closest('.box-container');
@@ -259,6 +248,9 @@
             var listas = document.querySelectorAll('.lista-desplegable');
             listas.forEach(function (lista) {
                 lista.style.display = 'none';
+                var parrafo = lista.querySelector('p');
+                parrafo.style.color = '#1E1E1E';
+
                 lista.classList.remove('slide-in-from-top');
             });
 
@@ -268,7 +260,7 @@
             });
 
             if (!esVisible) {
-                boxContainer.style.backgroundColor = '#333333';
+                boxContainer.style.backgroundColor = '#E1E8F0';
                 lista.style.display = 'block';
                 lista.classList.add('slide-in-from-top');
             }
@@ -278,6 +270,11 @@
             var lista = document.getElementById(idLista);
             var boxContainer = lista.closest('.box-container');
             boxContainer.style.backgroundColor = '#2C76B5';
+
+            var parrafo = lista.querySelector('p');
+            parrafo.style.color = '#fefefe';
+
+            window.location.href = "{% url 'resultado' %}";
         }
     </script>
 
