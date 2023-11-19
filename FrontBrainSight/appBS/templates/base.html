@@ -3,21 +3,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrainSight</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Incluye Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Incluye el CSS personalizado -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <!-- Titulo Encabezado -->
         <a class="navbar-brand" href="#">BrainSight</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        
+        <!-- Botón Desplegar Opciones -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Opciones Aplicación -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
@@ -37,6 +41,7 @@
                 </li>
             </ul>
         </div>
+
     </nav>
 
     <div class="container-fluid mt-4">
