@@ -8,7 +8,7 @@
     <title>BrainSight</title>
 
     <link rel="icon" type="image/png" href="{% static 'home.ico' %}"/>
-
+    
     <style>
         @font-face {
             font-family: Poppins-Bold;
@@ -226,10 +226,18 @@
             animation-fill-mode: forwards;
             animation-delay: 1.5s;
         }
+
+        model-viewer {
+            border: 1px solid red; /* Solo para depuración */
+            width: 100%;
+            height: 500px; /* Puedes ajustar esto según las necesidades de tu diseño */
+        }
+
+
     </style>
 </head>
 <body>
-
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <div id="banner" class="fadeIn">
         <a href="{% url 'home' %}">
             <img src="https://i.ibb.co/2sgV0hx/brainsight.png" alt="BrainSight">
@@ -335,12 +343,12 @@
         <div class="container">
 
             <div class="cerebro">
-                <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+                <!-- Aquí integras el model-viewer en lugar de la imagen -->
+                <model-viewer src="{% static 'test.glb' %}" alt="Tumor Recreado" auto-rotate camera-controls style="width: 100%; height: 400px;"></model-viewer>
             </div>
 
         </div>
 
     </div>
-
 </body>
 </html>
