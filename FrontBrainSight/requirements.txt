@@ -1,0 +1,7 @@
+django
+opencv-python
+nibabel
+sklearn
+
+
+npm install --global gulp-cli
