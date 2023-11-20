@@ -1,0 +1,6 @@
+Django
+psycopg2-binary
+nibabel
+numpy
+scikit-learn
+opencv-python

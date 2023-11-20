@@ -2,10 +2,13 @@ import glob
 import os
 import time
 import cv2
-from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
+from django.shortcuts import render
 import nibabel as nib
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from django.template.loader import render_to_string
+
 
 def home(request):
     return render(request, "inicio.html")
@@ -75,6 +78,9 @@ def informacion(request):
             'frame_flair_path': temp_image_path3.split('appBS/static/')[-1],
             'frame_mask_path': temp_image_path4.split('appBS/static/')[-1],
         }
-        return render(request, 'informacion.html', context)
+
+        html_content = render_to_string('actualizar.html', context)
+
+        return JsonResponse({'html': html_content})
     
     return render(request, 'informacion.html')
