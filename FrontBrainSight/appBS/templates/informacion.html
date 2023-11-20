@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
     <title>BrainSight</title>
 
     <link rel="icon" type="image/png" href="{% static 'home.ico' %}"/>
@@ -277,6 +278,16 @@
             <h2>Perspectivas</h2>
         </div>  
 
+       <!-- Formulario para ingresar el número de frame -->
+        <div class="frame-selection">
+            <form id="frame-form" method="post" action="{% url 'resultado' %}">
+                {% csrf_token %}
+                <label for="frame-number">Ingrese el número de Frame:</label>
+                <input type="number" id="frame-number" name="frame-number" min="0" required>
+                <button type="submit">Mostrar Frame</button>
+            </form>
+        </div>
+
         <div class="container">
 
             <div class="perspectivas">
@@ -285,14 +296,14 @@
                     <div class="perspectiva-recuadro">
                         <p>Perspectiva t1</p>
                     </div>
-                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1">
+                    <img src="{% static frame_t1_path %}" alt="Imagen T1">
                 </div>
         
                 <div class="perspectiva">
                     <div class="perspectiva-recuadro">
                         <p>Perspectiva t2</p>
                     </div>
-                    <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+                    <img src="{% static frame_t2_path %}" alt="Imagen T1">
                 </div>
         
             </div>
@@ -303,14 +314,14 @@
                     <div class="perspectiva-recuadro">
                         <p>Perspectiva Flair</p>
                     </div>
-                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1">
+                    <img src="{% static frame_flair_path %}" alt="Imagen T1">
                 </div>
         
                 <div class="perspectiva">
                     <div class="perspectiva-recuadro">
                         <p>Mascara</p>
                     </div>
-                    <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+                    <img src="{% static frame_mask_path %}" alt="Imagen T1">
                 </div>
         
             </div>
