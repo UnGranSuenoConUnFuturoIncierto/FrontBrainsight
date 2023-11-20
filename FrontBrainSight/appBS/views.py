@@ -10,55 +10,9 @@ from sklearn.preprocessing import MinMaxScaler
 def home(request):
     return render(request, "inicio.html")
 
-def informacion(request):
-    if request.method == 'POST':
-        frame_number = int(request.POST.get('frame-number'))
-        if frame_number > 149:
-            frame_number = 1
-        # Ruta al directorio donde se guardarán las imágenes
-        frames_dir = os.path.join('appBS/static/frames')
-        # Asegúrate de que la ruta al directorio es correcta y accesible
-        if not os.path.isdir(frames_dir):
-            os.makedirs(frames_dir)  # Crea el directorio si no existe
-        
-        # Elimina las imágenes antiguas
-        limpiar_imagenes_antiguas(frames_dir)
-
-        timestamp = int(time.time())  # Obtén el timestamp actual
-
-        # Añade el timestamp al nombre del archivo para evitar el cacheo
-        temp_image_path1 = f'appBS/static/frames/framet1_{timestamp}.png'
-        temp_image_path2 = f'appBS/static/frames/framet2_{timestamp}.png'
-        temp_image_path3 = f'appBS/static/frames/frameflair_{timestamp}.png'
-        temp_image_path4 = f'appBS/static/frames/framemask_{timestamp}.png'
-        
-        # Usa la función getframe para generar la imagen
-        flair, t1, t1ce, t2, test_mask = getTrainData("001")
-        getframe(t1, frame_number, temp_image_path1)
-        getframe(t2, frame_number, temp_image_path2)
-        getframe(flair, frame_number, temp_image_path3)
-        getframe(test_mask, frame_number, temp_image_path4)
-
-        # Actualiza el contexto con los nuevos nombres de archivo
-        context = {
-            'frame_t1_path': temp_image_path1.split('appBS/static/')[-1],
-            'frame_t2_path': temp_image_path2.split('appBS/static/')[-1],
-            'frame_flair_path': temp_image_path3.split('appBS/static/')[-1],
-            'frame_mask_path': temp_image_path4.split('appBS/static/')[-1],
-        }
-        # Pase el contexto a la plantilla, incluso si está vacío
-        return render(request, 'informacion.html', context)
-    else:
-        pass
-    
-    # Tu contexto y renderización usual aquí si es necesario
-    return render(request, 'informacion.html')
-
 def limpiar_imagenes_antiguas(directorio):
-    # Lista todos los archivos en el directorio
     for archivo in glob.glob(os.path.join(directorio, 'frame*')):
-        os.remove(archivo)  # Elimina el archivo
-
+        os.remove(archivo)
 
 def getTrainData(imageNum):
     scaler = MinMaxScaler()
@@ -88,3 +42,39 @@ def getTrainData(imageNum):
 
 def getframe(image, i, path):
     cv2.imwrite(path,image[:,:,i])
+
+def informacion(request):
+    if request.method == 'POST':
+
+        frame_number = int(request.POST.get('frame-number'))
+        if frame_number > 149:
+            frame_number = 1
+
+        frames_dir = os.path.join('appBS/static/frames')
+
+        if not os.path.isdir(frames_dir):
+            os.makedirs(frames_dir)
+        
+        limpiar_imagenes_antiguas(frames_dir)
+
+        timestamp = int(time.time())
+        temp_image_path1 = f'appBS/static/frames/framet1_{timestamp}.png'
+        temp_image_path2 = f'appBS/static/frames/framet2_{timestamp}.png'
+        temp_image_path3 = f'appBS/static/frames/frameflair_{timestamp}.png'
+        temp_image_path4 = f'appBS/static/frames/framemask_{timestamp}.png'
+        
+        flair, t1, t1ce, t2, test_mask = getTrainData("001")
+        getframe(t1, frame_number, temp_image_path1)
+        getframe(t2, frame_number, temp_image_path2)
+        getframe(flair, frame_number, temp_image_path3)
+        getframe(test_mask, frame_number, temp_image_path4)
+
+        context = {
+            'frame_t1_path': temp_image_path1.split('appBS/static/')[-1],
+            'frame_t2_path': temp_image_path2.split('appBS/static/')[-1],
+            'frame_flair_path': temp_image_path3.split('appBS/static/')[-1],
+            'frame_mask_path': temp_image_path4.split('appBS/static/')[-1],
+        }
+        return render(request, 'informacion.html', context)
+    
+    return render(request, 'informacion.html')
