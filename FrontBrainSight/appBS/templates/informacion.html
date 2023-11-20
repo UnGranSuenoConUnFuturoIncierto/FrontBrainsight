@@ -178,6 +178,7 @@
             padding: 0;
             height: 82%;
             width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
         }
 
         .cerebro {
@@ -187,6 +188,7 @@
         .cerebro img {
             width: 100%;
             border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
         }
 
         @keyframes fadeIn {
@@ -247,26 +249,26 @@
             <div class="informacion">
 
                 <div class="imagen">
-                    <img src="https://i.ibb.co/qgYnM6h/paciente.png" alt="Imagen 1" onclick="mostrarLista('lista1')">
-                    <h4>Jefferson Alberto Hernandez Garcia</h4>
+                    <img src="{{ paciente.foto }}" alt="paciente{{ paciente.id }}">
+                    <h4>{{ paciente.nombre }}</h4>
                 </div>  
 
                 <div class="datos"> 
 
                     <div class="subtitulo">Edad</div>
-                    <div class="texto">38 años</div>
+                    <div class="texto">{{ paciente.edad }} años</div>
 
                     <div class="subtitulo">Genero</div>
-                    <div class="texto">Femenino</div>
+                    <div class="texto">{{ paciente.genero }}</div>
 
-                    <div class="subtitulo">Altura</div>
-                    <div class="texto">167 cm</div>
+                    <div class="subtitulo">Estatura</div>
+                    <div class="texto">{{ paciente.estatura }} cm</div>
 
                     <div class="subtitulo">Sangre</div>
-                    <div class="texto">A+</div>
+                    <div class="texto">{{ paciente.sangre }}</div>
 
                     <div class="subtitulo">Ocupación</div>
-                    <div class="texto">Maestra</div>
+                    <div class="texto">{{ paciente.ocupacion }}</div>
 
                 </div>
 
@@ -282,6 +284,7 @@
         <div id="frame-container" class="frame-selection">
             <form id="frame-form">
                 {% csrf_token %}
+                <input type="hidden" name="id_paciente" value="{{ paciente.id }}">
                 <label for="frame-number">Ingrese el número de Frame:</label>
                 <input type="number" id="frame-number" name="frame-number" min="0" required>
                 <button type="submit" id="mostrar-frame-btn">Mostrar Frame</button>
@@ -296,14 +299,14 @@
                     <div class="perspectiva-recuadro">
                         <p>Perspectiva t1</p>
                     </div>
-                    <img src="{% static frame_t1_path %}" alt="Imagen T1">
+                    <img src="{% static frame_t1_path %}" alt="Perspectivat1">
                 </div>
         
                 <div class="perspectiva">
                     <div class="perspectiva-recuadro">
                         <p>Perspectiva t2</p>
                     </div>
-                    <img src="{% static frame_t2_path %}" alt="Imagen T1">
+                    <img src="{% static frame_t2_path %}" alt="Perspectivat2">
                 </div>
         
             </div>
@@ -314,14 +317,14 @@
                     <div class="perspectiva-recuadro">
                         <p>Perspectiva Flair</p>
                     </div>
-                    <img src="{% static frame_flair_path %}" alt="Imagen T1">
+                    <img src="{% static frame_flair_path %}" alt="PerspectivaFalir">
                 </div>
         
                 <div class="perspectiva">
                     <div class="perspectiva-recuadro">
                         <p>Mascara</p>
                     </div>
-                    <img src="{% static frame_mask_path %}" alt="Imagen T1">
+                    <img src="{% static frame_mask_path %}" alt="PerspectivaMascara">
                 </div>
         
             </div>
@@ -335,7 +338,7 @@
         <div class="container">
 
             <div class="cerebro">
-                <img src="https://i.ibb.co/bHNwstt/paciente2.png" alt="Imagen 2">
+                <img src="{{ paciente.foto }}" alt="Tumor">
             </div>
 
         </div>
