@@ -28,6 +28,7 @@
             padding: 5% 8% 5% 8%;
             text-align: center;
             background-color: #fefefe;
+            display: none;
         }
 
         #banner img {
@@ -204,6 +205,12 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.body.style.display = "block";
+            }, 2000); // 2000 milisegundos = 2 segundos
+        });
+
         function mostrarLista(idLista) {
             var lista = document.getElementById(idLista);
             var boxContainer = lista.closest('.box-container');
