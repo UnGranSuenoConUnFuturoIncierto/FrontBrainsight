@@ -12,17 +12,17 @@
     <style>
         @font-face {
             font-family: Poppins-Bold;
-            src: url("{% static 'Poppins-Bold.ttf' %}"); 
+            src: url("{% static 'fuentes/Poppins-Bold.ttf' %}"); 
         }
 
         @font-face {
             font-family: Poppins-Medium;
-            src: url("{% static 'Poppins-Medium.ttf' %}"); 
+            src: url("{% static 'fuentes/Poppins-Medium.ttf' %}"); 
         }
 
         @font-face {
             font-family: Poppins-Regular;
-            src: url("{% static 'Poppins-Regular.ttf' %}"); 
+            src: url("{% static 'fuentes/Poppins-Regular.ttf' %}"); 
         }
 
         body {
@@ -243,7 +243,7 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <div id="banner" class="fadeIn">
         <a href="{% url 'home' %}">
-            <img src="https://i.ibb.co/2sgV0hx/brainsight.png" alt="BrainSight">
+            <img src="{% static 'brainsight.png' %}" alt="BrainSight">
         </a>
     </div>
 
@@ -258,7 +258,7 @@
             <div class="informacion">
 
                 <div class="imagen">
-                    <img src="{{ paciente.foto }}" alt="paciente{{ paciente.id }}">
+                    <img src="{% static 'pacientes/' %}{{ paciente.foto }}" alt="paciente{{ paciente.id }}">
                     <h4>{{ paciente.nombre }}</h4>
                 </div>  
 
