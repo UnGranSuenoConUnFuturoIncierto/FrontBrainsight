@@ -1,40 +1,36 @@
 {% load static %}
-<div class="container" id="container-to-update">
+<div class="perspectivas">
 
-    <div class="perspectivas">
-
-        <div class="perspectiva">
-            <div class="perspectiva-recuadro">
+    <div class="perspectiva">
+        <div class="perspectiva-recuadro">
                 <p>Perspectiva t1</p>
-            </div>
-            <img src="{% static frame_t1_path %}" alt="Imagen T1">
         </div>
-
-        <div class="perspectiva">
-            <div class="perspectiva-recuadro">
-                <p>Perspectiva t2</p>
-            </div>
-            <img src="{% static frame_t2_path %}" alt="Imagen T1">
-        </div>
-
+        <img src="{% static frame_t1_path %}" alt="Imagen T1">
     </div>
 
-    <div class="perspectivas">
-
-        <div class="perspectiva">
-            <div class="perspectiva-recuadro">
-                <p>Perspectiva Flair</p>
-            </div>
-            <img src="{% static frame_flair_path %}" alt="Imagen T1">
+    <div class="perspectiva">
+        <div class="perspectiva-recuadro">
+            <p>Perspectiva t2</p>
         </div>
+        <img src="{% static frame_t2_path %}" alt="Imagen T1">
+    </div>
 
-        <div class="perspectiva">
-            <div class="perspectiva-recuadro">
-                <p>Mascara</p>
-            </div>
-            <img src="{% static frame_mask_path %}" alt="Imagen T1">
+</div>
+
+<div class="perspectivas">
+
+    <div class="perspectiva">
+        <div class="perspectiva-recuadro">
+            <p>Perspectiva Flair</p>
         </div>
+        <img src="{% static frame_flair_path %}" alt="Imagen T1">
+    </div>
 
+    <div class="perspectiva-mascara">
+        <div class="perspectiva-recuadro">
+            <p>Mascara</p>
+        </div>
+        <img src="{% static frame_mask_path %}" alt="Imagen T1">
     </div>
 
 </div>

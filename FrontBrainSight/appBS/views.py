@@ -46,7 +46,6 @@ def limpiar_imagenes_antiguas(directorio):
 def informacion(request):
 
     pacientes = cargarPacientes()
-    frame_number = 50
     
     if request.method == 'POST':
 
@@ -96,5 +95,4 @@ def informacion(request):
         viz.create3DBrainWithTumor_Train(id_datos)
         viz.modify_glb_for_transparency("appBS/static/3d/prueba.glb")
         
-    
     return render(request, 'informacion.html', {"paciente": paciente})
