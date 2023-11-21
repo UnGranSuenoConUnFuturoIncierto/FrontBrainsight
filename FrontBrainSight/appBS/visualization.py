@@ -12,23 +12,23 @@ def getImageTrainData(imageNum):
     
     path = f"appBS/BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_{imageNum}"
 
-    flair = nib.load(path + f"\BraTS20_Training_{imageNum}_flair.nii").get_fdata()
+    flair = nib.load(path + f"/BraTS20_Training_{imageNum}_flair.nii").get_fdata()
     flair = scaler.fit_transform(flair.reshape(-1, flair.shape[-1])).reshape(flair.shape)*255
     flair = flair.astype("uint8")
 
-    t1 = nib.load(path + f"\BraTS20_Training_{imageNum}_t1.nii").get_fdata()
+    t1 = nib.load(path + f"/BraTS20_Training_{imageNum}_t1.nii").get_fdata()
     t1 = scaler.fit_transform(t1.reshape(-1, t1.shape[-1])).reshape(t1.shape)*255
     t1 = t1.astype("uint8")     
 
-    t1ce = nib.load(path + f"\BraTS20_Training_{imageNum}_t1ce.nii").get_fdata()
+    t1ce = nib.load(path + f"/BraTS20_Training_{imageNum}_t1ce.nii").get_fdata()
     t1ce = scaler.fit_transform(t1ce.reshape(-1, t1ce.shape[-1])).reshape(t1ce.shape)*255
     t1ce = t1ce.astype("uint8")   
 
-    t2 = nib.load(path +f"\BraTS20_Training_{imageNum}_t2.nii").get_fdata()
+    t2 = nib.load(path +f"/BraTS20_Training_{imageNum}_t2.nii").get_fdata()
     t2 = scaler.fit_transform(t2.reshape(-1, t2.shape[-1])).reshape(t2.shape)*255
     t2 = t2.astype("uint8")
 
-    mask = nib.load(path + f"\BraTS20_Training_{imageNum}_seg.nii").get_fdata()
+    mask = nib.load(path + f"/BraTS20_Training_{imageNum}_seg.nii").get_fdata()
     mask = mask.astype(np.uint8)
 
     return flair, t1, t1ce, t2, mask
@@ -39,19 +39,19 @@ def getImageValidationData(imageNum):
     
     path = f"appBS/BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_{imageNum}"
 
-    flair = nib.load(path + f"\BraTS20_Validation_{imageNum}_flair.nii").get_fdata()
+    flair = nib.load(path + f"/BraTS20_Validation_{imageNum}_flair.nii").get_fdata()
     flair = scaler.fit_transform(flair.reshape(-1, flair.shape[-1])).reshape(flair.shape)*255
     flair = flair.astype("uint8")
 
-    t1 = nib.load(path + f"\BraTS20_Validation_{imageNum}_t1.nii").get_fdata()
+    t1 = nib.load(path + f"/BraTS20_Validation_{imageNum}_t1.nii").get_fdata()
     t1 = scaler.fit_transform(t1.reshape(-1, t1.shape[-1])).reshape(t1.shape)*255
     t1 = t1.astype("uint8")
 
-    t1ce = nib.load(path + f"\BraTS20_Validation_{imageNum}_t1ce.nii").get_fdata()
+    t1ce = nib.load(path + f"/BraTS20_Validation_{imageNum}_t1ce.nii").get_fdata()
     t1ce = scaler.fit_transform(t1ce.reshape(-1, t1ce.shape[-1])).reshape(t1ce.shape)*255
     t1ce = t1ce.astype("uint8")
 
-    t2 = nib.load(path +f"\BraTS20_Validation_{imageNum}_t2.nii").get_fdata()
+    t2 = nib.load(path +f"/BraTS20_Validation_{imageNum}_t2.nii").get_fdata()
     t2 = scaler.fit_transform(t2.reshape(-1, t2.shape[-1])).reshape(t2.shape)*255
     t2 = t2.astype("uint8")
 
