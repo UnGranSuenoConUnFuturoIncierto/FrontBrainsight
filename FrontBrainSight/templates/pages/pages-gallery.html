@@ -1,0 +1,218 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} Gallery {% endblock title %} 
+         
+{% block extra_css %}
+
+    <!-- Lightbox css -->
+    <link href="{% static 'libs/magnific-popup/dist/magnific-popup.css' %}" rel="stylesheet" type="text/css" />
+
+{% endblock extra_css %}
+
+
+{% block pagetitle %}
+    {% include "partials/page-title.html" with pagetitle="Pages" title="Gallery" %}
+{% endblock pagetitle %}
+
+{% block content %}   
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <ul class="col list-inline gallery-categories-filter text-center" id="filter">
+                                <li class="list-inline-item"><a class="categories active" data-filter="*">All</a></li>
+                                <li class="list-inline-item"><a class="categories" data-filter=".branding">Branding</a></li>
+                                <li class="list-inline-item"><a class="categories" data-filter=".designing">Designing</a></li>
+                                <li class="list-inline-item"><a class="categories" data-filter=".photography">Photography</a></li>
+                                <li class="list-inline-item"><a class="categories" data-filter=".development">Development</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Gallary -->
+                        <div class="row container-grid projects-wrapper">
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding designing development">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-1.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-1.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Person riding on snowmobile</h5>
+                                                <p class="text-uppercase mb-0">Joseph Clark</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 photography">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-2.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-2.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Photography</h5>
+                                                <p class="text-uppercase mb-0">Paul Stone</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding development">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-3.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-3.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Skateland storefront</h5>
+                                                <p class="text-uppercase mb-0">Thomas Moser</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding designing photography">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-4.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-4.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Two persons walking on road</h5>
+                                                <p class="text-uppercase mb-0">Daniel Draper</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding designing">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-5.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-5.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Person holding smartphone</h5>
+                                                <p class="text-uppercase mb-0">Rocky Jensen</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 photography">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-6.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-6.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">People sitting on chair</h5>
+                                                <p class="text-uppercase mb-0">James Lewis</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding designing development">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-7.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-7.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Coffee cup on Table</h5>
+                                                <p class="text-uppercase mb-0">Edward Kelley</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 photography">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-8.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-8.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Play game with VR</h5>
+                                                <p class="text-uppercase mb-0">Brett John</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding development">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-9.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-9.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Person climbing on wall</h5>
+                                                <p class="text-uppercase mb-0">Patrick Waddell</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding designing development">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-10.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-10.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Hello World text</h5>
+                                                <p class="text-uppercase mb-0">Johnny Garcia</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 branding designing">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-11.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-11.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Discussion for project</h5>
+                                                <p class="text-uppercase mb-0">Wayne Horton</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="col-xl-3 col-md-4 col-sm-6 photography development">
+                                <div class="gallery-box mt-4">
+                                    <a class="gallery-popup" href="{% static 'images/small/img-12.jpg' %}" title="">
+                                        <img class="gallery-demo-img img-fluid mx-auto" src="{% static 'images/small/img-12.jpg' %}" alt="1" />
+                                        <div class="gallery-overlay">
+                                            <div class="overlay-content">
+                                                <h5 class="overlay-title">Red car on Road</h5>
+                                                <p class="text-uppercase mb-0">Steven Holcomb</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+{% endblock content %}
+
+{% block extra_js %}
+
+    <!-- Isotope Filter -->
+    <script src="{% static 'libs/isotope-layout/dist/isotope.pkgd.min.js' %}"></script>
+
+    <!-- Magnific Popup-->
+    <script src="{% static 'libs/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+
+    <script src="{% static 'js/pages/gallery.init.js' %}"></script>
+    
+{% endblock extra_js %}

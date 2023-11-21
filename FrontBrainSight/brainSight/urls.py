@@ -19,6 +19,8 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from brainSight import views
+from django.contrib.auth.decorators import login_required
+from .views import MyPasswordChangeView, MyPasswordSetView
 
 
 urlpatterns = [
@@ -26,15 +28,38 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # Index
-    path('',views.index,name="index"),
-    
-    # Account 
-    path('account/',include("account.urls")),
-    
-    # Contact
-    path('contact/',views.contact,name="contact"),
+    path('index',views.index,name="index"),
     
     # App
-    path ("", include("appBS.urls"))
+    path ("prueba/", include("appBS.urls")),
+    
+    # dashboard
+    path("",include('dashboard.urls')),
+    
+    # e_mail
+    path('e_mail/',include('e_mail.urls')),
+    
+    # authentication
+    path('authentication/',include('authentication.urls')),
+    
+    # pages
+    path('pages/',include('pages.urls')),
+    
+    # components
+    path('components/',include('components.urls')),
+    
+    path(
+        "account/password/change/",
+        login_required(MyPasswordChangeView.as_view()),
+        name="account_change_password",
+    ),
+    path(
+        "account/password/set/",
+        login_required(MyPasswordSetView.as_view()),
+        name="account_set_password",
+    ),
+    
+    # All Auth 
+    path('account/', include('allauth.urls')),
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k7x#6z(#5^unb=y+#yn#-pfc$uoz5ut*mlhze57i5vd3if&&i('
+SECRET_KEY = 'django-insecure-#7w^x*%j7+mpvb&uo22(@+s0$t=n&^q1oa4h+l)l4p*a+7(w(9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     
-    'account',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google', 
+    
+    'dashboard',
+    'e_mail',
+    'authentication',
+    'pages',
+    'components',
+    
+    "crispy_forms",
+    "crispy_bootstrap4",
+    
+    
     'brainSight',
     'appBS',
 ]
@@ -52,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'brainSight.urls'
@@ -71,6 +88,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 WSGI_APPLICATION = 'brainSight.wsgi.application'
 
@@ -120,8 +139,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATIC_ROOT= os.path.join(BASE_DIR,'assets')
 
 
 
@@ -129,3 +149,73 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+ACCOUNT_FORMS = {
+    "login": "brainSight.forms.UserLoginForm",
+    "signup": "brainSight.forms.UserRegistrationForm",
+    "change_password": "brainSight.forms.PasswordChangeForm",
+    "set_password": "brainSight.forms.PasswordSetForm",
+    "reset_password": "brainSight.forms.PasswordResetForm",
+    "reset_password_from_key": "brainSight.forms.PasswordResetKeyForm",
+}
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
+
+#  Messages customize
+
+MESSAGE_TAGS = {
+    messages.DEBUG: "alert-info",
+    messages.INFO: "alert-info",
+    messages.SUCCESS: "alert-success",
+    messages.WARNING: "alert-warning",
+    messages.ERROR: "alert-danger",
+}
+
+#  All Auth Configurations
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "account_login"
+ACCOUNT_LOGOUT_ON_GET = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS =True
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_UNIQUE_EMAIL = True
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+SITE_ID = 1
+
+# Provider Configurations
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+# client id = '93200508060-t0ikjrmqqsdktrmht0f4glsb3d7ah1kp.apps.googleusercontent.com'
+# client secret = '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'
+
+# SMTP Configure
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "florezruizjosedavid@gmail.com"
+EMAIL_HOST_PASSWORD = "fqdfhdmxxauarkdf"
+DEFAULT_FROM_EMAIL = "1f37cfc80405c5"
+

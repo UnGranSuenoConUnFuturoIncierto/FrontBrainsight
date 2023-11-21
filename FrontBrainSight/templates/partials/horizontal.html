@@ -1,0 +1,306 @@
+{% load static %}
+{% block horizontal %}
+
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="container-fluid">
+            <div class="float-end">
+
+                <div class="dropdown d-inline-block ms-2">
+                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="mdi mdi-magnify"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-search-dropdown">
+
+                        <form class="p-3">
+                            <div class="form-group m-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="mdi mdi-tune"></i>
+                    </button>
+                </div>
+
+                <!-- light dark btn -->
+                <div class="dropdown d-none d-sm-inline-block">
+                    <button type="button" class="btn header-item" id="light-dark-mode">
+                        <i class="mdi mdi-moon-waning-crescent align-middle fs-4"></i>
+                    </button>
+                </div>
+
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="{% static 'images/users/avatar-1.jpg' %}" alt="Header Avatar">
+                        <span class="d-none d-sm-inline-block ms-1">{{user.username}}</span>
+                        <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle me-1"></i> Billing</a>
+                        <a class="dropdown-item" href="#"><i class="mdi mdi-account-settings font-size-16 align-middle me-1"></i> Settings</a>
+                        <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock screen</a>
+                        <div class="dropdown-divider"></div>
+                        
+                    {% if user.is_authenticated %}
+                        {% if user.has_usable_password %}
+                        
+                            <a class="dropdown-item" href="{% url 'account_change_password' %}">
+                                <i class="mdi mdi-key font-size-16 align-middle me-1"></i>Change Password</a>
+    
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">
+                                <i class="mdi mdi-logout font-size-16 align-middle me-1"></i>Logout</a>
+                        {% endif %}
+                    {% else %}
+                        <a class="dropdown-item" href="{% url 'account_login' %}">
+                            <i class="mdi mdi-login font-size-16 align-middle me-1"></i>Log in</a>
+    
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href="{% url 'dashboard:dashboard' %}" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="{% static 'images/logo-sm-dark.png' %}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{% static 'images/logo-dark.png' %}" alt="" height="20">
+                    </span>
+                </a>
+
+                <a href="{% url 'dashboard:dashboard' %}" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="{% static 'images/logo-sm-light.png' %}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{% static 'images/logo-light.png' %}" alt="" height="20">
+                    </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm me-2 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <div class="topnav">
+                <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+
+                    <div class="collapse navbar-collapse" id="topnav-menu-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'dashboard:dashboard' %}">
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Elements <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-mega-menu-xl px-2" aria-labelledby="topnav-uielement">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="dropdown-item-text fw-semibold font-size-14">
+                                                <div class="d-inline-block icons-sm me-1"><i class="uim uim-box"></i></div> UI Elements</div>
+
+                                            <div class="row">
+                                                <div class="col-lg-5">
+                                                    <a href="{% url 'components:bootstrap-ui.alerts' %}" class="dropdown-item">Alerts</a>
+                                                    <a href="{% url 'components:bootstrap-ui.badges' %}" class="dropdown-item">Badge</a>
+                                                    <a href="{% url 'components:bootstrap-ui.buttons' %}" class="dropdown-item">Buttons</a>
+                                                    <a href="{% url 'components:bootstrap-ui.cards' %}" class="dropdown-item">Cards</a>
+                                                    <a href="{% url 'components:bootstrap-ui.dropdowns' %}" class="dropdown-item">Dropdowns</a>
+                                                    <a href="{% url 'components:bootstrap-ui.navs' %}" class="dropdown-item">Navs</a>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div>
+                                                        <a href="{% url 'components:bootstrap-ui.tabs_accordions' %}" class="dropdown-item">Tabs &amp; Accordions</a>
+                                                        <a href="{% url 'components:bootstrap-ui.modals' %}" class="dropdown-item">Modals</a>
+                                                        <a href="{% url 'components:bootstrap-ui.images' %}" class="dropdown-item">Images</a>
+                                                        <a href="{% url 'components:bootstrap-ui.progressbars' %}" class="dropdown-item">Progress Bars</a>
+                                                        <a href="{% url 'components:bootstrap-ui.pagination' %}" class="dropdown-item">Pagination</a>
+                                                        <a href="{% url 'components:bootstrap-ui.popover_tooltips' %}" class="dropdown-item">Popover & Tooltips</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="dropdown-item-text fw-semibold font-size-14">
+                                                <div class="d-inline-block icons-sm me-1"><i class="uim uim-layer-group"></i></div> Advanced UI</div>
+                                            <div>
+                                                <a href="{% url 'components:advance-ui.alertify' %}" class="dropdown-item">Alertify</a>
+                                                <a href="{% url 'components:advance-ui.ratings' %}" class="dropdown-item">Rating</a>
+                                                <a href="{% url 'components:advance-ui.nestable' %}" class="dropdown-item">Nestable</a>
+                                                <a href="{% url 'components:advance-ui.rangeslider' %}" class="dropdown-item">Range Slider</a>
+                                                <a href="{% url 'components:advance-ui.sweet_alert' %}" class="dropdown-item">Sweet-Alert</a>
+                                                <a href="{% url 'components:advance-ui.lightbox' %}" class="dropdown-item">Lightbox</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Components <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-components">
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-email" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="d-inline-block icons-sm me-2"><i class="uim uim-comment-message"></i></div> Email
+                                            <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-email">
+                                            <a href="{% url 'e_mail:inbox' %}" class="dropdown-item">Inbox</a>
+                                            <a href="{% url 'e_mail:read' %}" class="dropdown-item">Email Read</a>
+                                            <a href="{% url 'e_mail:compose' %}" class="dropdown-item">Email Compose</a>
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'dashboard:calendar' %}" class="dropdown-item">
+                                        <div class="d-inline-block icons-sm me-2"><i class="uim uim-schedule"></i></div> Calendar</a>
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-icon" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="d-inline-block icons-sm me-2"><i class="uim uim-object-ungroup"></i></div>Icons
+                                            <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-icon">
+                                            <a href="{% url 'components:icons.materialdesign' %}" class="dropdown-item">Material Design</a>
+                                            <a href="{% url 'components:icons.dripicons' %}" class="dropdown-item">Dripicons</a>
+                                            <a href="{% url 'components:icons.fontawesome' %}" class="dropdown-item">Font awesome 5</a>
+                                            <a href="{% url 'components:icons.themify' %}" class="dropdown-item">Themify</a>
+                                            <a href="{% url 'components:icons.unicons' %}" class="dropdown-item">Unicons - Dual Tone</a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="d-inline-block icons-sm me-2"><i class="uim uim-table"></i></div>Tables
+                                            <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-table">
+                                            <a href="{% url 'components:tables.basic' %}" class="dropdown-item">Basic Tables</a>
+                                            <a href="{% url 'components:tables.datatable' %}" class="dropdown-item">Data Tables</a>
+                                            <a href="{% url 'components:tables.responsive' %}" class="dropdown-item">Responsive Table</a>
+                                            <a href="{% url 'components:tables.editable' %}" class="dropdown-item">Editable Table</a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-form" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="d-inline-block icons-sm me-2"><i class="uim uim-document-layout-left"></i></div>Forms
+                                            <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-form">
+                                            <a href="{% url 'components:forms.elements' %}" class="dropdown-item">Form Elements</a>
+                                            <a href="{% url 'components:forms.validation' %}" class="dropdown-item">Form Validation</a>
+                                            <a href="{% url 'components:forms.advanced' %}" class="dropdown-item">Form Advanced</a>
+                                            <a href="{% url 'components:forms.editors' %}" class="dropdown-item">Form Editors</a>
+                                            <a href="{% url 'components:forms.file_uploads' %}" class="dropdown-item">Form File Upload</a>
+                                            <a href="{% url 'components:forms.mask' %}" class="dropdown-item">Form Mask</a>
+                                            <a href="{% url 'components:forms.summernote' %}" class="dropdown-item">Summernote</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-chart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="d-inline-block icons-sm me-2"><i class="uim uim-chart-pie"></i></div>Charts
+                                            <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-chart">
+                                            <a href="{% url 'components:charts.morris' %}" class="dropdown-item">Morris</a>
+                                            <a href="{% url 'components:charts.apex' %}" class="dropdown-item">Apex</a>
+                                            <a href="{% url 'components:charts.chartist' %}" class="dropdown-item">Chartist</a>
+                                            <a href="{% url 'components:charts.chartjs' %}" class="dropdown-item">Chartjs</a>
+                                            <a href="{% url 'components:charts.flot' %}" class="dropdown-item">Flot</a>
+                                            <a href="{% url 'components:charts.sparkline' %}" class="dropdown-item">Sparkline</a>
+                                            <a href="{% url 'components:charts.knob' %}" class="dropdown-item">Jquery Knob</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-maps" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="d-inline-block icons-sm me-2"><i class="uim uim-comment-plus"></i></div>Maps
+                                            <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-maps">
+                                            <a href="{% url 'components:maps.google' %}" class="dropdown-item">Google map</a>
+                                            <a href="{% url 'components:maps.vector' %}" class="dropdown-item">Vector map</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Extra pages <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-more">
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-auth" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Authentication <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-auth">
+                                            <a href="{% url 'authentication:login' %}" class="dropdown-item">Login</a>
+                                            <a href="{% url 'authentication:register' %}" class="dropdown-item">Register</a>
+                                            <a href="{% url 'authentication:recover_password' %}" class="dropdown-item">Recover Password</a>
+                                            <a href="{% url 'authentication:lock_screen' %}" class="dropdown-item">Lock Screen</a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-utility" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Utility <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-utility">
+                                            <a href="{% url 'pages:starter' %}" class="dropdown-item">Starter Page</a>
+                                            <a href="{% url 'pages:maintenance' %}" class="dropdown-item">Maintenance</a>
+                                            <a href="{% url 'pages:coming_soon' %}" class="dropdown-item">Coming Soon</a>
+                                            <a href="{% url 'pages:timeline' %}" class="dropdown-item">Timeline</a>
+                                            <a href="{% url 'pages:gallery' %}" class="dropdown-item">Gallery</a>
+                                            <a href="{% url 'pages:faqs' %}" class="dropdown-item">FAQs</a>
+                                            <a href="{% url 'pages:pricing' %}" class="dropdown-item">Pricing</a>
+                                            <a href="{% url 'pages:error404' %}" class="dropdown-item">Error 404</a>
+                                            <a href="{% url 'pages:error500' %}" class="dropdown-item">Error 500</a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-layout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Layouts <div class="arrow-down"></div>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="topnav-layout">
+                                            <a href="{% url 'components:layouts.horizontal' %}" class="dropdown-item">Horizontal</a>
+                                            <a href="{% url 'components:layouts.dark_sidebar' %}" class="dropdown-item">Dark Sidebar</a>
+                                            <a href="{% url 'components:layouts.small_sidebar' %}" class="dropdown-item">Small Sidebar</a>
+                                            <a href="{% url 'components:layouts.icon_sidebar' %}" class="dropdown-item">Icon Sidebar</a>
+                                            <a href="{% url 'components:layouts.colored_sidebar' %}" class="dropdown-item">Dark Topbar</a>
+                                            <a href="{% url 'components:layouts.boxed_sidebar' %}" class="dropdown-item">Boxed Layout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    
+</header>
+
+{% endblock horizontal %}

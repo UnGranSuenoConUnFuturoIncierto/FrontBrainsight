@@ -5,8 +5,6 @@
    File Description: Main js file
 */
 
-
-
 //  Window scroll sticky class add
 function windowScroll() {
     const navbar = document.getElementById("navbar");

@@ -1,0 +1,267 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} Images {% endblock title %}
+
+    {% block pagetitle %}
+    {% include "partials/page-title.html" with pagetitle="Bootstrap UI" title="Images"%}
+    {% endblock pagetitle %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="header-title">Image thumbnails</h4>
+                <p class="card-title-desc">In addition to our border-radius utilities, you can use
+                    <code>.img-thumbnail</code> to give an image a
+                    rounded 1px border appearance.</p>
+
+                <div class="">
+                    <img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;" src="{% static 'images/small/img-3.jpg' %}" data-holder-rendered="true">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="header-title">Image Rounded & Circle</h4>
+                <p class="card-title-desc">Use classes
+                    <code>.rounded</code> and <code>.rounded-circle</code>.</p>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-2">
+                            <img class="rounded" alt="200x200" style="width: 200px;" src="{% static 'images/small/img-4.jpg' %}" data-holder-rendered="true">
+                        </div>
+                        <code>.rounded</code>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-2">
+                            <img class="rounded-circle" alt="200x200" src="{% static 'images/users/avatar-4.jpg' %}" data-holder-rendered="true">
+                        </div>
+                        <code>.rounded-circle</code>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="header-title">Responsive images</h4>
+                <p class="card-title-desc">Images in Bootstrap are made responsive
+                    with <code>.img-fluid</code>. <code
+                           >max-width: 100%;</code> and <code
+                           >height: auto;</code> are applied to
+                    the image so that it scales with the parent element.</p>
+
+                <div class="">
+                    <img src="{% static 'images/small/img-2.jpg' %}" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title mb-4">Images Sizes</h4>
+                
+                <div class="row">
+                    <div class="col-xl-6">
+
+                        <h5 class="font-size-16">Avatar Img</h5>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="mt-4">
+                                    <img src="{% static 'images/users/avatar-3.jpg' %}" alt="" class="rounded avatar-xs">
+                                    <p class="mt-2"><code>.avatar-xs</code></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mt-4">
+                                    <img src="{% static 'images/users/avatar-4.jpg' %}" alt="" class="rounded avatar-sm">
+                                    <p class="mt-2"><code>.avatar-sm</code></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mt-4">
+                                    <img src="{% static 'images/users/avatar-5.jpg' %}" alt="" class="rounded avatar-md">
+                                    <p class="mt-2"><code>.avatar-md</code></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mt-4">
+                                    <img src="{% static 'images/users/avatar-3.jpg' %}" alt="" class="rounded avatar-lg">
+                                    <p class="mt-2 mb-lg-0"><code>.avatar-lg</code></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mt-4">
+                                    <img src="{% static 'images/users/avatar-4.jpg' %}" alt="" class="rounded avatar-xl">
+                                    <p class="mt-2 mb-lg-0"><code>.avatar-xl</code></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="mt-4 mt-xl-0">
+                            <h5 class="font-size-16">Avatar With Text</h5>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mt-4">
+                                        <div class="avatar-xs">
+                                            <span class="avatar-title bg-primary-subtle rounded text-primary">
+                                                XS
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mt-4">
+                                        <div class="avatar-sm">
+                                            <span class="avatar-title bg-primary-subtle rounded text-primary">
+                                                SM
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mt-4">
+                                        <div class="avatar-md">
+                                            <span class="avatar-title bg-primary-subtle rounded text-primary">
+                                                MD
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mt-4">
+                                        <div class="avatar-sm">
+                                            <span class="avatar-title bg-primary-subtle rounded text-primary">
+                                                LG
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mt-4">
+                                        <div class="avatar-md">
+                                            <span class="avatar-title bg-primary-subtle rounded text-primary">
+                                                XL
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Default media object</h4>
+                <p class="card-title-desc">The default media displays a media
+                    object (images, video, audio) to the left or right of a content
+                    block.</p>
+
+                <div class="d-flex mb-4">
+                    <img class="d-flex me-3 rounded-circle" src="{% static 'images/users/avatar-6.jpg' %}" alt="" height="64">
+                    <div class="media-body flex-grow-1">
+                        <h5 class="font-size-15">Media heading</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                    </div>
+                </div>
+
+
+                <div class="d-flex mb-4">
+                    <img class="d-flex me-3 rounded-circle" src="{% static 'images/users/avatar-2.jpg' %}" alt="" height="64">
+                    <div class="media-body flex-grow-1">
+                        <h5 class="font-size-15">Media heading</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at.
+
+                        <div class="d-flex mt-3">
+                            <a class="d-flex pe-3" href="#">
+                                <img src="{% static 'images/users/avatar-3.jpg' %}" alt="" height="64" class="rounded-circle">
+                            </a>
+                            <div class="media-body flex-grow-1">
+                                <h5 class="font-size-15">Media heading</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin cras purus odio in vulputate.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <div class="media-body flex-grow-1">
+                        <h5 class="font-size-15">Media object</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio ac nisi vulputate faucibus.
+                    </div>
+                    <img class="d-flex ms-3 rounded-circle" src="{% static 'images/users/avatar-4.jpg' %}" alt="" height="64">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="header-title">Media alignment</h4>
+                <p class="card-title-desc">The images or other media can be
+                    aligned top, middle, or bottom. The default is top aligned.</p>
+
+                <div class="d-flex mb-2">
+                    <img class="d-flex align-self-start rounded me-3" src="{% static 'images/users/avatar-3.jpg' %}" alt="" height="64">
+                    <div class="media-body flex-grow-1">
+                        <h5 class="font-size-15">Top-aligned media</h5>
+                        <p class="mb-2">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis..</p>
+                        <p>Donec sed odio dui. Nullam quis risus eget ornare vel eu.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex mb-2">
+                    <img class="d-flex align-self-center rounded me-3" src="{% static 'images/users/avatar-5.jpg' %}" alt="" height="64">
+                    <div class="media-body flex-grow-1">
+                        <h5 class="font-size-15">Center-aligned media</h5>
+                        <p class="mb-2">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis..</p>
+                        <p>Donec sed odio dui. Nullam quis risus eget ornare vel eu.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <img class="d-flex align-self-end rounded me-3" src="{% static 'images/users/avatar-1.jpg' %}" alt="" height="64">
+                    <div class="media-body flex-grow-1">
+                        <h5 class="font-size-15">Bottom-aligned media</h5>
+                        <p class="mb-2">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis..</p>
+                        <p class="mb-0">Donec sed odio dui. Nullam quis risus eget ornare vel eu.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
+               

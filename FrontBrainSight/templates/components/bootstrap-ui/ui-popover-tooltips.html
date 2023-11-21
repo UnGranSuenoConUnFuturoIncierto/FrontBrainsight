@@ -1,0 +1,99 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} Popover & Tooltips {% endblock title %}
+
+    {% block pagetitle %}
+    {% include "partials/page-title.html" with pagetitle="Bootstrap UI" title="Popover & Tooltips"%}
+    {% endblock pagetitle %} 
+
+{% block content %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title">Popovers</h4>
+                                <p class="card-title-desc">Add small overlay content, like those found in iOS, to any element for housing secondary information.</p>
+                                <div class="button-items">
+                                    <button type="button" class="btn btn-primary waves-effect" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on top
+                                    </button>
+    
+                                    <button type="button" class="btn btn-primary waves-effect" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on right
+                                    </button>
+    
+                                    <button type="button" class="btn btn-primary waves-effect"
+                                            data-container="body" data-toggle="popover" data-placement="bottom"
+                                            data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on bottom
+                                    </button>
+    
+                                    <button type="button" class="btn btn-primary waves-effect" data-container="body" data-toggle="popover" data-placement="left" title="Popover Title" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on left
+                                    </button>
+    
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title">Tooltips</h4>
+                                <p class="card-title-desc">Hover over the links below to see tooltips:</p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-centered mb-0">
+                                        
+                                        <tbody>
+                                            <tr>
+                                                <td>Tooltip on left</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                                                        Hover me
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tooltip on right</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                                                        Hover me
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tooltip on bottom</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+                                                        Hover me
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tooltip on top</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                                        Hover me
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+{% endblock content %}
+
+                     

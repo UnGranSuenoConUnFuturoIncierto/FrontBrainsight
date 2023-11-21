@@ -1,0 +1,47 @@
+
+//
+// Colorpicker
+//
+
+.sp-replacer{
+  background-color: $input-bg;
+  border-color: $input-border-color;
+  color: $gray-800;
+  &:hover, .sp-active{
+    border-color: $input-border-color;
+    color: $gray-800;
+  }
+}
+
+.sp-preview{
+  border-color: $input-border-color;
+}
+
+.sp-container{
+  background-color: var(--#{$prefix}tertiary-bg);
+  border-color: var(--#{$prefix}border-color);
+
+  button{
+    background-color: var(--#{$prefix}tertiary-bg) ;
+    color: $gray-800;
+    background-image: none !important;
+    padding: .25rem .5rem;
+    font-size: .79625rem;
+    line-height: 1.5;
+    &:hover{
+      background-color: var(--#{$prefix}tertiary-bg);
+    }
+  }
+}
+
+.sp-picker-container{
+  border-color: var(--#{$prefix}border-color);
+}
+
+.sp-input{
+  background-color: $input-bg;
+  border-color: $input-border-color;
+  color: $input-color;
+  outline: 0;
+}
+

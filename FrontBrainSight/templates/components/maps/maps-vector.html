@@ -1,0 +1,94 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} Vector maps{% endblock title %}
+
+{% block extra_css %}
+
+    <!-- jvectormap -->
+    <link href="{% static 'libs/jqvmap/dist/jqvmap.min.css' %}" rel="stylesheet" />
+
+{% endblock extra_css %}
+
+{% block pagetitle %}
+{% include "partials/page-title.html" with pagetitle="Pages" title="Vector maps"%}
+{% endblock pagetitle %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">World Map</h4>
+
+                        <div id="world-map-markers" style="height: 350px"></div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">USA Map</h4>
+
+                        <div id="usa" style="height: 350px"></div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">Canada Map</h4>
+
+                        <div id="canada" style="height: 350px"></div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">France Map</h4>
+
+                        <div id="france" style="height: 350px"></div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">Germany Map</h4>
+
+                        <div id="germany" style="height: 350px"></div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">Brazil Map</h4>
+
+                        <div id="brazil" style="height: 350px"></div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+{% endblock content %}
+
+{% block extra_js %}
+
+    <!-- Jq vector map -->
+    <script src="{% static 'libs/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+    <script src="{% static 'libs/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+    <script src="{% static 'libs/jqvmap/dist/maps/jquery.vmap.usa.js' %}"></script>
+    <script src="{% static 'libs/jqvmap/dist/maps/jquery.vmap.canada.js' %}"></script>
+    <script src="{% static 'libs/jqvmap/dist/maps/jquery.vmap.france.js' %}"></script>
+    <script src="{% static 'libs/jqvmap/dist/maps/jquery.vmap.germany.js' %}"></script>
+    <script src="{% static 'libs/jqvmap/dist/maps/jquery.vmap.brazil.js' %}"></script>
+
+    <!-- gmaps init -->
+    <script src="{% static 'js/pages/vector-map.init.js' %}"></script>
+
+{% endblock extra_js %}
+    

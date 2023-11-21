@@ -1,0 +1,47 @@
+// 
+// _layouts.scss
+// 
+
+body[data-layout-size="boxed"] {
+    background-color: var(--#{$prefix}boxed-body-bg);
+    #layout-wrapper {
+        background-color: var(--#{$prefix}body-bg);
+        max-width: var(--#{$prefix}boxed-layout-width);
+        margin: 0 auto;
+        box-shadow: $box-shadow;
+    }
+
+    #page-topbar {
+        max-width: var(--#{$prefix}boxed-layout-width);
+        margin: 0 auto;
+    }
+
+    .footer {
+        margin: 0 auto;
+        max-width: calc(#{var(--#{$prefix}boxed-layout-width)} - #{var(--#{$prefix}sidebar-width)});
+    }
+
+    &.vertical-collpsed {
+        .footer {
+            max-width: calc(#{var(--#{$prefix}boxed-layout-width)} - #{var(--#{$prefix}sidebar-collapsed-width)});
+        }
+    }
+}
+
+
+// Horizontal Boxed Layout
+
+body[data-layout="horizontal"][data-layout-size="boxed"]{
+    background-color: var(--#{$prefix}body-bg);
+    #page-topbar, #layout-wrapper, .footer {
+        max-width: 100%;
+    }
+
+    #layout-wrapper{
+        box-shadow: none;
+    }
+
+    .container-fluid, .navbar-header {
+        max-width: var(--#{$prefix}boxed-layout-width);
+    }
+}

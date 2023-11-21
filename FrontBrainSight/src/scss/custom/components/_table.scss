@@ -1,0 +1,51 @@
+// 
+// _table.scss
+// 
+
+.table {
+  th {
+    font-weight: $font-weight-semibold;
+  }
+}
+
+//Table centered
+.table-centered {
+
+  td,
+  th {
+    vertical-align: middle !important;
+  }
+}
+
+.table-nowrap {
+
+  th,
+  td {
+    white-space: nowrap;
+  }
+}
+
+table {
+  &.table-bordered {
+    border-width: 1px;
+    &.dataTable {
+      td{
+        border-left-width: 1px;
+      }
+      thead{
+        tr{
+          border-width: 1px;
+        }
+        th{
+          border-width: 1px;
+        }
+      }
+      tbody {
+        td {
+          border-bottom-width: 1px;
+        }
+
+      }
+    }
+  }
+}

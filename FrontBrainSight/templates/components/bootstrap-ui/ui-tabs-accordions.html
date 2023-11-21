@@ -1,0 +1,541 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} Tabs & Accordions {% endblock title %}
+
+    {% block pagetitle %}
+    {% include "partials/page-title.html" with pagetitle="Bootstrap UI" title="Tabs & Accordions"%}
+    {% endblock pagetitle %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Default Tabs</h4>
+                <p class="card-title-desc">Takes the basic nav from above and adds the <code class="highlighter-rouge">.nav-tabs</code> class to generate a tabbed interface.</p>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#navtabs-home" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-home me-2"></i> Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#navtabs-profile" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-user me-2"></i>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#navtabs-messages" role="tab">
+                            <span class="d-none d-sm-block"><i class="far fa-envelope me-2"></i>Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#navtabs-settings" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-cog me-2"></i>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content p-3 text-muted">
+                    <div class="tab-pane active" id="navtabs-home" role="tabpanel">
+                        <p class="mb-0">
+                            Raw denim you probably haven't heard of them jean shorts Austin.
+                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+                            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                            iphone. Seitan aliquip quis cardigan american, voluptate nisi qui.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="navtabs-profile" role="tabpanel">
+                        <p class="mb-0">
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                            sartorial PBR leggings next level wes anderson artisan four loko
+                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                            commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+                            vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                            aesthetic magna delectus.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="navtabs-messages" role="tabpanel">
+                        <p class="mb-0">
+                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                            tattooed craft beer, iphone skateboard locavore carles etsy
+                            salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+                            Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh
+                            mi whatever gluten yr.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="navtabs-settings" role="tabpanel">
+                        <p class="mb-0">
+                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache.
+                        </p>
+                    </div><!-- end tab pane -->
+                </div>
+            </div> <!-- end card body -->
+        </div> <!-- end card -->
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="header-title">Nav pills</h4>
+                <p class="card-title-desc">Take that same nav-tabs HTML, but use <code>.nav-pills</code> instead.</p>
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#navpills-home" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-home me-2"></i>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#navpills-profile" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-user me-2"></i>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#navpills-messages" role="tab">
+                            <span class="d-none d-sm-block"><i class="far fa-envelope me-2"></i>Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#navpills-settings" role="tab">
+                            <span class="d-none d-sm-block"><i class="far fas fa-cog me-2"></i>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content p-3 text-muted">
+                    <div class="tab-pane active" id="navpills-home" role="tabpanel">
+                        <p class="mb-0">
+                            Raw denim you probably haven't heard of them jean shorts Austin.
+                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+                            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                            iphone. Seitan aliquip quis cardigan apparel, voluptate nisi qui.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="navpills-profile" role="tabpanel">
+                        <p class="mb-0">
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                            sartorial PBR leggings next level wes anderson artisan four loko
+                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                            commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+                            vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                            aesthetic magna 8-bit.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="navpills-messages" role="tabpanel">
+                        <p class="mb-0">
+                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                            tattooed craft beer, iphone skateboard locavore carles etsy
+                            salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+                            Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh
+                            mi whatever gluten-free.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="navpills-settings" role="tabpanel">
+                        <p class="mb-0">
+                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache.
+                        </p>
+                    </div><!-- end tab pane -->
+                </div>
+            </div> <!-- end crad body -->
+        </div> <!-- end crad -->
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Vertical Tabs</h4>
+                <p class="card-title-desc">Exmaple Vertical nav tabs</p>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link mb-2 active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home me-2"></i>Home</a>
+                            <a class="nav-link mb-2" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-user me-2"></i>Profile</a>
+                            <a class="nav-link mb-2" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-envelope me-2"></i>Messages</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-cog me-2"></i>Settings</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content mt-4 mt-md-0" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <p>
+                                    Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie.
+                                </p>
+                                <p class="mb-0">
+                                    If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                <p>
+                                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress mollit.
+                                </p>
+                                <p class="mb-0">
+                                    To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Qui photo booth letterpress.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <p>
+                                    Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park vinyl keffiyeh Lomo wolf viral, mustache.
+                                </p>
+                                <p class="mb-0">
+                                    Everyone realizes why a new common language would be desirable. one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <p>
+                                    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher sweater eu banh mi, qui irure terry ex.
+                                </p>
+                                <p class="mb-0">
+                                    To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Qui photo booth letterpress.
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div>
+
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Vertical Tabs</h4>
+                <p class="card-title-desc">Exmaple Vertical nav tabs</p>
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="tab-content mt-4 mt-md-0" id="v-r-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-r-pills-home" role="tabpanel" aria-labelledby="v-r-pills-home-tab">
+                                <p>
+                                    Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie.
+                                </p>
+                                <p class="mb-0">
+                                    If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="v-r-pills-profile" role="tabpanel" aria-labelledby="v-r-pills-profile-tab">
+                                <p>
+                                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress mollit.
+                                </p>
+                                <p class="mb-0">
+                                    To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Qui photo booth letterpress.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="v-r-pills-messages" role="tabpanel" aria-labelledby="v-r-pills-messages-tab">
+                                <p>
+                                    Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park vinyl keffiyeh Lomo wolf viral, mustache.
+                                </p>
+                                <p class="mb-0">
+                                    Everyone realizes why a new common language would be desirable. one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="v-r-pills-settings" role="tabpanel" aria-labelledby="v-r-pills-settings-tab">
+                                <p>
+                                    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher sweater eu banh mi, qui irure terry ex.
+                                </p>
+                                <p class="mb-0">
+                                    To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Qui photo booth letterpress.
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" id="v-r-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link mb-2 active" id="v-r-pills-home-tab" data-bs-toggle="pill" href="#v-r-pills-home" role="tab" aria-controls="v-r-pills-home" aria-selected="true"><i class="fas fa-home me-2"></i>Home</a>
+                            <a class="nav-link mb-2" id="v-r-pills-profile-tab" data-bs-toggle="pill" href="#v-r-pills-profile" role="tab" aria-controls="v-r-pills-profile" aria-selected="false"><i class="fas fa-user me-2"></i>Profile</a>
+                            <a class="nav-link mb-2" id="v-r-pills-messages-tab" data-bs-toggle="pill" href="#v-r-pills-messages" role="tab" aria-controls="v-r-pills-messages" aria-selected="false"><i class="far fa-envelope me-2"></i>Messages</a>
+                            <a class="nav-link" id="v-r-pills-settings-tab" data-bs-toggle="pill" href="#v-r-pills-settings" role="tab" aria-controls="v-r-pills-settings" aria-selected="false"><i class="fas fa-cog me-2"></i>Settings</a>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Nav justified</h4>
+                <p class="card-title-desc">Example nav justified.</p>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#justifyavpills-home" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-home me-2"></i>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#justifyavpills-profile" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-user me-2"></i>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#justifyavpills-messages" role="tab">
+                            <span class="d-none d-sm-block"><i class="far fa-envelope me-2"></i>Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#justifyavpills-settings" role="tab">
+                            <span class="d-none d-sm-block"><i class="far fas fa-cog me-2"></i>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content p-3 text-muted">
+                    <div class="tab-pane active" id="justifyavpills-home" role="tabpanel">
+                        <p class="mb-0">
+                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                            tattooed craft beer, iphone skateboard locavore carles etsy
+                            salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+                            Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh
+                            mi whatever gluten-free.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="justifyavpills-profile" role="tabpanel">
+                        <p class="mb-0">
+                            Raw denim you probably haven't heard of them jean shorts Austin.
+                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+                            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                            iphone. Seitan aliquip quis cardigan apparel, voluptate nisi qui.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="justifyavpills-messages" role="tabpanel">
+                        <p class="mb-0">
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                            sartorial PBR leggings next level wes anderson artisan four loko
+                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                            commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+                            vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                            aesthetic magna 8-bit.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="justifyavpills-settings" role="tabpanel">
+                        <p class="mb-0">
+                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache.
+                        </p>
+                    </div><!-- end tab pane -->
+                </div>
+            </div> <!-- end crad body -->
+        </div> <!-- end crad -->
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Custom nav tabs</h4>
+                <p class="card-title-desc">Example Custom nav tabs.</p>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#customnavtabs-home" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-home me-2"></i> Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#customnavtabs-profile" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-user me-2"></i>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#customnavtabs-messages" role="tab">
+                            <span class="d-none d-sm-block"><i class="far fa-envelope me-2"></i>Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#customnavtabs-settings" role="tab">
+                            <span class="d-none d-sm-block"><i class="fas fa-cog me-2"></i>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content p-3 text-muted">
+                    <div class="tab-pane active" id="customnavtabs-home" role="tabpanel">
+                        <p class="mb-0">
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                            sartorial PBR leggings next level wes anderson artisan four loko
+                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                            commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+                            vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                            aesthetic magna delectus.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="customnavtabs-profile" role="tabpanel">
+                        <p class="mb-0">
+                            Raw denim you probably haven't heard of them jean shorts Austin.
+                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+                            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                            iphone. Seitan aliquip quis cardigan american, voluptate nisi qui.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="customnavtabs-messages" role="tabpanel">
+                        <p class="mb-0">
+                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                            tattooed craft beer, iphone skateboard locavore carles etsy
+                            salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+                            Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh
+                            mi whatever gluten yr.
+                        </p>
+                    </div><!-- end tab pane -->
+                    <div class="tab-pane" id="customnavtabs-settings" role="tabpanel">
+                        <p class="mb-0">
+                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache.
+                        </p>
+                    </div><!-- end tab pane -->
+                </div>
+            </div> <!-- end card body -->
+        </div> <!-- end card -->
+    </div>
+
+</div>
+<!-- end row -->
+
+<!-- Collapse -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Default Collapse</h4>
+                <p class="card-title-desc mb-3">
+                    You can use a link with the <code>href</code>
+                    attribute, or a button with the <code>data-target</code>
+                    attribute. In both cases, the <code>data-toggle="collapse"</code>
+                    is required.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2 align-items-start mb-3">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Link with href
+                    </a>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Button with data-target
+                    </button>
+                </div>
+                <div class="collapse show" id="collapseExample">
+                    <div class="card card-body mb-0">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
+                </div>
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Accordion example</h4>
+                <p class="card-title-desc">Extend the default collapse behavior to create an accordion.</p>
+
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button show fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                accusamus terry richardson ad squid. 3 wolf moon officia
+                                aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                sunt aliqua put a bird on it squid single-origin coffee
+                                nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                helvetica, craft beer labore wes anderson cred nesciunt
+                                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                Leggings occaecat craft beer farm-to-table, raw denim
+                                aesthetic synth nesciunt you probably haven't heard of them
+                                accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Collapsible Group Item #2
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                accusamus terry richardson ad squid. 3 wolf moon officia
+                                aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                sunt aliqua put a bird on it squid single-origin coffee
+                                nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                helvetica, craft beer labore wes anderson cred nesciunt
+                                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                Leggings occaecat craft beer farm-to-table, raw denim
+                                aesthetic synth nesciunt you probably haven't heard of them
+                                accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Collapsible Group Item #3
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                accusamus terry richardson ad squid. 3 wolf moon officia
+                                aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                sunt aliqua put a bird on it squid single-origin coffee
+                                nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                helvetica, craft beer labore wes anderson cred nesciunt
+                                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                Leggings occaecat craft beer farm-to-table, raw denim
+                                aesthetic synth nesciunt you probably haven't heard of them
+                                accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div>
+</div>
+<!-- end row -->
+{% endblock content %}
+
+

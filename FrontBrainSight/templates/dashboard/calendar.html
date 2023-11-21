@@ -1,0 +1,69 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} Calendar {% endblock title %} 
+     
+{% block extra_css %}
+
+    <!-- Plugin css -->
+    <link href="{% static 'libs/fullcalendar/dist/fullcalendar.min.css' %}" rel="stylesheet" type="text/css" />
+
+ {% endblock extra_css %}
+
+{% block pagetitle %}
+    {% include "partials/page-title.html" with pagetitle="Xoric" title="Calendar" %}
+{% endblock pagetitle %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-3 col-md-4">
+
+                                <h4 class="font-size-14">Created Events</h4>
+                                <form method="post" id="add_event_form" class="mb-4">
+                                    <input type="text" class="form-control new-event-form" placeholder="Add new event..." />
+                                </form>
+
+                                <div id='external-events'>
+                                    <h4 class="font-size-14">Draggable Events</h4>
+                                    <div class='fc-event'>My Event 1</div>
+                                    <div class='fc-event'>My Event 2</div>
+                                    <div class='fc-event'>My Event 3</div>
+                                    <div class='fc-event'>My Event 4</div>
+                                    <div class='fc-event'>My Event 5</div>
+                                </div>
+
+                                <!-- checkbox -->
+                                <div class="custom-control custom-checkbox mt-3">
+                                    <input type="checkbox" class="custom-control-input" id="drop-remove" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                    <label class="custom-control-label" for="drop-remove">Remove after drop</label>
+                                </div>
+
+                            </div>
+
+                            <div id='calendar' class="col-xl-10 col-lg-9 col-md-8 mt-4 mt-md-0"></div>
+
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+{% endblock content %}
+                        
+{% block extra_js %}
+
+    <!-- plugin js -->
+    <script src="{% static 'libs/moment/min/moment.min.js' %}"></script>
+    <script src="{% static 'libs/jquery-ui-dist/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'libs/fullcalendar/dist/fullcalendar.min.js' %}"></script>
+
+    <!-- Calendar init -->
+    <script src="{% static 'js/pages/calendar.init.js' %}"></script>
+    
+{% endblock extra_js %}

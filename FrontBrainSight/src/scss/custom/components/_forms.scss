@@ -1,0 +1,17 @@
+// 
+// _forms.scss
+// 
+
+
+.custom-control-label,
+.form-check-label {
+  font-weight: $font-weight-normal;
+}
+
+
+.btn-group-toggle>.btn input[type=checkbox]
+ {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
