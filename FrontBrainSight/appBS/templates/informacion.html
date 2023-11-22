@@ -380,7 +380,7 @@
        <!-- Formulario para ingresar el número de frame -->
         <div id="frame-container" class="frame-selection">
             <form id="frame-form">
-                {% csrf_token %}
+                 <!-- {% csrf_token %}-->
                 <input type="hidden" name="id_paciente" value="{{ paciente.id }}">
                 <label for="frame-number">Ingrese el número del Frame:</label>
                 <input type="number" id="frame-number" name="frame-number" min="0" required>
