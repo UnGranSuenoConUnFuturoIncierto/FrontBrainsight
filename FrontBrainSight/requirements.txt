@@ -8,3 +8,4 @@ scikit-image
 trimesh
 matplotlib
 pygltflib
+django-cors-headers
