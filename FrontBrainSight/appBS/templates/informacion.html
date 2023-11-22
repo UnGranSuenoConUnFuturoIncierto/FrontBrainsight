@@ -450,7 +450,7 @@
             $("#mostrar-frame-btn").click(function(e){
                 e.preventDefault();
                 
-                $.post("/resultado/", $("#frame-form").serialize(), function(data){
+                $.post("http://35.203.153.88:8000/resultado/", $("#frame-form").serialize(), function(data){
                     $("#container-to-update").html(data.html);
                     $("#container-to-update").css("display", "block");
                 });
